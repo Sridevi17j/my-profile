@@ -1,25 +1,59 @@
-name: Enable Auto Merge
+name: Auto Merge Minor AI Changes
 
 on:
-  pull_request:
-    types: [opened, reopened, synchronize, labeled, ready_for_review]
+  workflow_run:
+    workflows: ["CI"]
+    types: [completed]
 
 permissions:
   contents: write
   pull-requests: write
 
 jobs:
-  enable-auto-merge:
-    name: Enable auto-merge for minor AI changes
+  merge-after-ci:
+    name: Merge labeled PR after CI passes
     if: >
-      github.event.pull_request.draft == false &&
-      github.event.pull_request.base.ref == 'main' &&
-      contains(github.event.pull_request.labels.*.name, 'ai-minor-change')
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'pull_request'
     runs-on: ubuntu-latest
 
     steps:
-      - name: Enable GitHub auto-merge
-        run: gh pr merge "$PR_URL" --auto --squash
+      - name: Merge eligible minor AI PR
+        run: |
+          set -euo pipefail
+
+          pr_json=$(gh api \
+            -H "Accept: application/vnd.github+json" \
+            "/repos/${REPO}/commits/${SHA}/pulls" \
+            --jq 'map(select(.state == "open" and .base.ref == "main")) | first')
+
+          if [ "$pr_json" = "null" ] || [ -z "$pr_json" ]; then
+            echo "No open PR targeting main for ${SHA}."
+            exit 0
+          fi
+
+          pr_number=$(echo "$pr_json" | jq -r '.number')
+          is_draft=$(echo "$pr_json" | jq -r '.draft')
+          head_repo=$(echo "$pr_json" | jq -r '.head.repo.full_name')
+          has_label=$(echo "$pr_json" | jq -r '[.labels[].name] | index("ai-minor-change") != null')
+
+          if [ "$is_draft" != "false" ]; then
+            echo "PR #${pr_number} is draft; skipping."
+            exit 0
+          fi
+
+          if [ "$head_repo" != "$REPO" ]; then
+            echo "PR #${pr_number} is from ${head_repo}; skipping fork PR."
+            exit 0
+          fi
+
+          if [ "$has_label" != "true" ]; then
+            echo "PR #${pr_number} does not have ai-minor-change label; skipping."
+            exit 0
+          fi
+
+          gh pr merge "$pr_number" --repo "$REPO" --squash --delete-branch
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR_URL: ${{ github.event.pull_request.html_url }}
+          REPO: ${{ github.repository }}
+          SHA: ${{ github.event.workflow_run.head_sha }}
