@@ -29,6 +29,17 @@ npm run build
 
 If any command fails, fix the issue and rerun the failed command before opening the PR.
 
+## Pull request workflow
+
+For any requested code change:
+
+- Create a branch for the change.
+- Open a pull request targeting `main`.
+- Do not push directly to `main`.
+- Keep the pull request focused on the requested task.
+- If the request is a small copy, styling, or static-content change, add the GitHub label `ai-minor-change` to the pull request.
+- After opening the pull request, do not manually merge it. The repository's GitHub Actions workflow will merge eligible `ai-minor-change` pull requests after CI passes.
+
 ## PR description
 
 Include:
@@ -37,7 +48,3 @@ Include:
 - Tests run
 - Screenshots or notes for UI changes
 - Any known limitations
-
-## PR labels
-
-For small copy, styling, or static-content changes, add the GitHub label `ai-minor-change` to the pull request.
