@@ -37,3 +37,7 @@ Include:
 - Tests run
 - Screenshots or notes for UI changes
 - Any known limitations
+
+## PR labels
+
+For small copy, styling, or static-content changes, add the GitHub label `ai-minor-change` to the pull request.
