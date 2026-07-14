@@ -52,6 +52,32 @@ jobs:
             exit 0
           fi
 
+          changed_files=$(gh pr view "$pr_number" --repo "$REPO" --json files --jq '.files[].path')
+
+          if [ -z "$changed_files" ]; then
+            echo "PR #${pr_number} has no changed files; skipping."
+            exit 0
+          fi
+
+          echo "Changed files:"
+          echo "$changed_files"
+
+          disallowed_files=$(echo "$changed_files" | grep -Ev '^(src/|index\.html$)' || true)
+
+          if [ -n "$disallowed_files" ]; then
+            echo "PR #${pr_number} touches files outside the small UI allowlist; skipping auto-merge."
+            echo "$disallowed_files"
+            exit 0
+          fi
+
+          sensitive_files=$(echo "$changed_files" | grep -E '(^|/)(migrations|db|database|auth|payments|billing|contracts|infra|server)(/|$)|(^|/)\.env|^\.github/workflows/|(^|/)package(-lock)?\.json$|(^|/)vite\.config\.js$|(^|/)eslint\.config\.js$' || true)
+
+          if [ -n "$sensitive_files" ]; then
+            echo "PR #${pr_number} touches sensitive files; skipping auto-merge."
+            echo "$sensitive_files"
+            exit 0
+          fi
+
           gh pr merge "$pr_number" --repo "$REPO" --squash --delete-branch
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
