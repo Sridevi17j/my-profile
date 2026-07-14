@@ -4,6 +4,14 @@ This repository is a safe test project for Slack/Linear/GitHub engineering autom
 
 These instructions apply to Codex and other coding agents.
 
+## Very Important: Definition of Done
+
+For every requested code change, the task is not complete until a GitHub pull request is opened.
+
+Do not stop after only committing locally, preparing a diff, or pushing a branch. Unless the user explicitly asks for a plan only, always finish by opening a pull request targeting `main`.
+
+If you cannot open a pull request, stop and report the exact blocker. Do not claim the task is complete without a PR URL.
+
 ## Project Shape
 
 - Frontend: React with Vite in `src/`
@@ -98,6 +106,8 @@ npm run build
 If any command fails, fix the issue and rerun the failed command.
 
 ## PR Requirements
+
+For every code change, open a pull request targeting `main`.
 
 Open a PR to `main` with:
 
