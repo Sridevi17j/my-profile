@@ -23,6 +23,7 @@ main {
 }
 
 .hero {
+  --hero-text-color: #90ee90;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 360px;
   gap: 48px;
@@ -34,6 +35,7 @@ main {
     url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80");
   background-position: center;
   background-size: cover;
+  color: var(--hero-text-color);
 }
 
 .hero-copy {
@@ -42,7 +44,7 @@ main {
 
 .eyebrow {
   margin: 0 0 16px;
-  color: #68756c;
+  color: inherit;
   font-size: 0.85rem;
   font-weight: 800;
   letter-spacing: 0;
@@ -64,7 +66,7 @@ h1 {
 
 .role {
   margin-bottom: 22px;
-  color: #a855f7;
+  color: inherit;
   font-size: 1.3rem;
   font-weight: 800;
 }
@@ -78,7 +80,7 @@ h1 {
 
 .summary {
   max-width: 640px;
-  color: #3c473f;
+  color: inherit;
   font-size: 1.05rem;
   line-height: 1.7;
 }
@@ -99,14 +101,14 @@ h1 {
   border: 1px solid #17211b;
   border-radius: 6px;
   background: #17211b;
-  color: #ffffff;
+  color: inherit;
   font-weight: 800;
   text-decoration: none;
 }
 
 .actions a + a {
   background: rgba(255, 255, 255, 0.72);
-  color: #17211b;
+  color: inherit;
 }
 
 .portrait-panel {
@@ -128,7 +130,7 @@ h1 {
 
 .portrait-panel span {
   display: block;
-  color: #68756c;
+  color: inherit;
   font-size: 0.85rem;
   font-weight: 700;
 }
