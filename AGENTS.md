@@ -12,6 +12,27 @@ Do not stop after only committing locally, preparing a diff, or pushing a branch
 
 If you cannot open a pull request, stop and report the exact blocker. Do not claim the task is complete without a PR URL.
 
+## Very Important: GitHub Publishing Requirements
+
+The repository must publish work to GitHub as a real pull request.
+
+Before creating the PR:
+
+- Check `git remote -v`.
+- If `origin` is missing, add it:
+
+```bash
+git remote add origin https://github.com/Sridevi17j/my-profile.git
+```
+
+- Check whether `GITHUB_TOKEN` is available in the environment.
+- If `GITHUB_TOKEN` is available, use it for GitHub operations.
+- If `gh` is missing and package installation is available, install the GitHub CLI or use the GitHub REST API with `GITHUB_TOKEN`.
+- If neither `gh` nor direct API calls work, use the available Codex/GitHub PR tool.
+- If the environment cannot reach `github.com` or `api.github.com`, stop and report the network/proxy blocker clearly.
+
+Do not say a PR was created unless GitHub returns a real PR URL from `https://github.com/Sridevi17j/my-profile/pull/...`.
+
 ## Project Shape
 
 - Frontend: React with Vite in `src/`
