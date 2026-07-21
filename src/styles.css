@@ -201,8 +201,8 @@ h2 {
 }
 
 .tags span {
-  padding: 6px 10px;
-  border-radius: 999px;
+  padding: 4px 8px;
+  border-radius: 6px;
   background: #e5ece8;
   color: #26362c;
   font-size: 0.85rem;
