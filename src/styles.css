@@ -23,7 +23,7 @@ main {
 }
 
 .hero {
-  --hero-text-color: #1e3a8a;
+  --hero-text-color: #5c1a1b;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 360px;
   gap: 48px;
