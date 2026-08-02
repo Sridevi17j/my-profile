@@ -42,7 +42,7 @@ function App() {
           <p className="headline">{profile.headline}</p>
           <p className="summary">{profile.summary}</p>
           <div className="actions">
-            <a href={profile.contact.github}>GitHub Profile</a>
+            <a href={profile.contact.github}>GitHub</a>
             <a href="#projects">Projects</a>
           </div>
         </div>
