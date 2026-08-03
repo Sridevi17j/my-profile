@@ -43,7 +43,7 @@ function App() {
           <p className="summary">{profile.summary}</p>
           <div className="actions">
             <a href={profile.contact.github}>GitHub Profile</a>
-            <a href="#projects">View Projects</a>
+            <a href="#projects">Check Project</a>
           </div>
         </div>
         <div className="portrait-panel" aria-label="Profile visual">
