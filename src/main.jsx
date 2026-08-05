@@ -52,7 +52,7 @@ function App() {
           <img src="https://github.com/Sridevi17j.png" alt="Sridevi GitHub avatar" />
           <div>
             <span>Currently exploring</span>
-            <strong>Slack to PR automation</strong>
+            <strong>Slack to PR workflow</strong>
           </div>
         </div>
       </section>
