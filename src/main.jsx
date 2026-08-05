@@ -10,7 +10,8 @@ const fallbackProfile = {
     "I work on AI-assisted engineering workflows, developer productivity, and product systems that help teams move from ideas to shipped software faster.",
   focusAreas: ["AI engineering workflows", "Full-stack products", "Automation", "Developer experience"],
   contact: {
-    github: "https://github.com/Sridevi17j"
+    github: "https://github.com/Sridevi17j",
+    linkedin: "https://www.linkedin.com/"
   }
 };
 
@@ -42,7 +43,7 @@ function App() {
           <p className="headline">{profile.headline}</p>
           <p className="summary">{profile.summary}</p>
           <div className="actions">
-            <a href={profile.contact.github}>Check Github Profile</a>
+            <a href={profile.contact.linkedin}>Check My LinkedIn</a>
             <a href="#projects">Check Project</a>
           </div>
         </div>
