@@ -1,10 +1,10 @@
 export const profile = {
   name: "Sridevi",
-  role: "AI workflow builder",
+  role: "AI Engineer",
   location: "India",
-  headline: "Building practical AI automation for engineering teams.",
+  headline: "I bring automation and AI into the environment you already run.",
   summary:
-    "I work on AI-assisted engineering workflows, developer productivity, and product systems that help teams move from ideas to shipped software faster.",
+    "I design AI-assisted workflows that take repetitive work off your team's plate, and autonomous agents that carry the daily tasks end to end. Rather than replacing what you have, I integrate AI into your existing products and systems so they get measurably better at what they already do.",
   focusAreas: ["AI engineering workflows", "Full-stack products", "Automation", "Developer experience"],
   contact: {
     github: "https://github.com/Sridevi17j",
