@@ -11,7 +11,8 @@ const fallbackProfile = {
   focusAreas: ["AI engineering workflows", "Full-stack products", "Automation", "Developer experience"],
   contact: {
     github: "https://github.com/Sridevi17j",
-    linkedin: "https://www.linkedin.com/"
+    linkedin: "https://www.linkedin.com/",
+    email: "sridevi17j@gmail.com"
   }
 };
 
@@ -80,6 +81,16 @@ function App() {
             </article>
           ))}
         </div>
+      </section>
+
+      <section className="section" id="contact">
+        <h2>Contact Me</h2>
+        <p className="contact-intro">
+          Have a workflow worth automating? Send me a note.
+        </p>
+        <a className="contact-email" href={`mailto:${profile.contact.email}`}>
+          {profile.contact.email}
+        </a>
       </section>
     </main>
   );

@@ -9,7 +9,7 @@ export const profile = {
   contact: {
     github: "https://github.com/Sridevi17j",
     linkedin: "https://www.linkedin.com/",
-    email: "hello@example.com"
+    email: "sridevi17j@gmail.com"
   }
 };
 
