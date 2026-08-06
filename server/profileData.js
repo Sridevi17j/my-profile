@@ -49,7 +49,7 @@ export const workflowRequests = [
     id: "major-records",
     title: "Update existing application records",
     type: "major",
-    description: "User account access changes can be applied automatically without manual approval.",
-    approval: "Automatic, no manual approval needed"
+    description: "Existing records can be updated or deleted automatically, without approval.",
+    approval: "Auto-applied, no approval needed"
   }
 ];
