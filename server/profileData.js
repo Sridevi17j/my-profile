@@ -33,7 +33,7 @@ export const projects = [
 export const workflowRequests = [
   {
     id: "minor-copy",
-    title: "Fast frontend updates",
+    title: "Simple UI updates",
     type: "minor",
     description: "Static copy, color, spacing, image, and display-only content changes.",
     approval: "Auto PR eligible"
