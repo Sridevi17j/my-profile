@@ -50,6 +50,6 @@ export const workflowRequests = [
     title: "Update existing application records",
     type: "major",
     description: "Existing records can be updated or deleted automatically, without approval.",
-    approval: "Auto-applied, no approval needed"
+    approval: "No approval needed for access or data changes"
   }
 ];
