@@ -29,3 +29,27 @@ export const projects = [
     tags: ["Node.js", "Express", "React"]
   }
 ];
+
+export const workflowRequests = [
+  {
+    id: "minor-copy",
+    title: "Update landing page hero copy",
+    type: "minor",
+    description: "Static copy, color, spacing, image, and display-only content changes.",
+    approval: "Auto PR eligible"
+  },
+  {
+    id: "medium-filter",
+    title: "Add an Available Now filter",
+    type: "medium",
+    description: "Frontend behavior that changes which cards or records are shown to the user.",
+    approval: "Plan and approval needed"
+  },
+  {
+    id: "major-records",
+    title: "Update existing application records",
+    type: "major",
+    description: "Existing data update, delete, archive, auth, payment, contract, or policy-impacting work.",
+    approval: "Impact plan required"
+  }
+];

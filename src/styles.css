@@ -154,6 +154,10 @@ h1 {
   background: #eef3f0;
 }
 
+#contact {
+  background: #f7f5ef;
+}
+
 h2 {
   margin-bottom: 22px;
   font-size: 2rem;
@@ -195,6 +199,94 @@ h2 {
 .project-card p {
   color: #48554c;
   line-height: 1.65;
+}
+
+.section-heading {
+  max-width: 720px;
+  margin-bottom: 24px;
+}
+
+.section-heading .eyebrow {
+  margin-bottom: 10px;
+}
+
+.section-heading p {
+  color: #48554c;
+  font-size: 1.05rem;
+  line-height: 1.65;
+}
+
+.filter-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.filter-tabs button {
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid #93a39a;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #26362c;
+  font: inherit;
+  font-weight: 800;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.filter-tabs button.active {
+  border-color: #17211b;
+  background: #17211b;
+  color: #ffffff;
+}
+
+.workflow-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.workflow-card {
+  min-height: 230px;
+  padding: 22px;
+  border: 1px solid rgba(23, 33, 27, 0.14);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.workflow-card span {
+  display: inline-flex;
+  margin-bottom: 14px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: #e5ece8;
+  color: #26362c;
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.workflow-card.medium span {
+  background: #fef3c7;
+  color: #854d0e;
+}
+
+.workflow-card.major span {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.workflow-card p {
+  color: #48554c;
+  line-height: 1.6;
+}
+
+.workflow-card strong {
+  display: block;
+  margin-top: 16px;
+  color: #17211b;
 }
 
 .tags {
@@ -245,7 +337,8 @@ h2 {
   }
 
   .focus-grid,
-  .project-grid {
+  .project-grid,
+  .workflow-grid {
     grid-template-columns: 1fr;
   }
 }

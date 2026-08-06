@@ -2,7 +2,7 @@ import cors from "cors";
 import express from "express";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { profile, projects } from "./profileData.js";
+import { profile, projects, workflowRequests } from "./profileData.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -23,6 +23,10 @@ export function createApp() {
 
   app.get("/api/projects", (_req, res) => {
     res.json(projects);
+  });
+
+  app.get("/api/workflow-requests", (_req, res) => {
+    res.json(workflowRequests);
   });
 
   if (process.env.NODE_ENV === "production") {
