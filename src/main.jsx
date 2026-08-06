@@ -16,23 +16,35 @@ const fallbackProfile = {
   }
 };
 
+const workflowFilters = ["all", "minor", "medium", "major"];
+
 function App() {
   const [profile, setProfile] = useState(fallbackProfile);
   const [projects, setProjects] = useState([]);
+  const [workflowRequests, setWorkflowRequests] = useState([]);
+  const [activeWorkflowFilter, setActiveWorkflowFilter] = useState("all");
 
   useEffect(() => {
     Promise.all([
       fetch("/api/profile").then((response) => response.json()),
-      fetch("/api/projects").then((response) => response.json())
+      fetch("/api/projects").then((response) => response.json()),
+      fetch("/api/workflow-requests").then((response) => response.json())
     ])
-      .then(([profileData, projectData]) => {
+      .then(([profileData, projectData, workflowData]) => {
         setProfile(profileData);
         setProjects(projectData);
+        setWorkflowRequests(workflowData);
       })
       .catch(() => {
         setProjects([]);
+        setWorkflowRequests([]);
       });
   }, []);
+
+  const visibleWorkflowRequests =
+    activeWorkflowFilter === "all"
+      ? workflowRequests
+      : workflowRequests.filter((request) => request.type === activeWorkflowFilter);
 
   return (
     <main>
@@ -79,6 +91,40 @@ function App() {
                   <span key={tag}>{tag}</span>
                 ))}
               </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section workflow-lab" id="workflow-lab">
+        <div className="section-heading">
+          <p className="eyebrow">Workflow Lab</p>
+          <h2>Risk routing examples</h2>
+          <p>
+            A no-database test area for classifying engineering requests before they become pull
+            requests.
+          </p>
+        </div>
+        <div className="filter-tabs" aria-label="Filter workflow request examples">
+          {workflowFilters.map((filter) => (
+            <button
+              type="button"
+              className={filter === activeWorkflowFilter ? "active" : ""}
+              key={filter}
+              aria-pressed={filter === activeWorkflowFilter}
+              onClick={() => setActiveWorkflowFilter(filter)}
+            >
+              {filter}
+            </button>
+          ))}
+        </div>
+        <div className="workflow-grid">
+          {visibleWorkflowRequests.map((request) => (
+            <article className={`workflow-card ${request.type}`} key={request.id}>
+              <span>{request.type}</span>
+              <h3>{request.title}</h3>
+              <p>{request.description}</p>
+              <strong>{request.approval}</strong>
             </article>
           ))}
         </div>

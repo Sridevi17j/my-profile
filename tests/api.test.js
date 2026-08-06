@@ -27,4 +27,11 @@ describe("portfolio API", () => {
     expect(response.body.length).toBeGreaterThan(0);
     expect(response.body[0]).toHaveProperty("tags");
   });
+
+  it("returns workflow request examples", async () => {
+    const response = await request(app).get("/api/workflow-requests");
+
+    expect(response.status).toBe(200);
+    expect(response.body.map((request) => request.type)).toEqual(["minor", "medium", "major"]);
+  });
 });
