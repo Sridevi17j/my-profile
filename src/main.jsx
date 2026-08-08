@@ -12,7 +12,7 @@ const fallbackProfile = {
   contact: {
     github: "https://github.com/Sridevi17j",
     linkedin: "https://www.linkedin.com/",
-    email: "sridevi17j@gmail.com"
+    email: "hello@sridevi.dev"
   }
 };
 
