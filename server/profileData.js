@@ -1,6 +1,6 @@
 export const profile = {
   name: "Sridevi",
-  role: "AI Engineer",
+  role: "AI Workflow Consultant",
   location: "India",
   headline: "I bring automation and AI into the environment you already run.",
   summary:

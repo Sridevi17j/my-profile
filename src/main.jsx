@@ -4,7 +4,7 @@ import "./styles.css";
 
 const fallbackProfile = {
   name: "Sridevi",
-  role: "AI Engineer",
+  role: "AI Workflow Consultant",
   headline: "I bring automation and AI into the environment you already run.",
   summary:
     "I design AI-assisted workflows that take repetitive work off your team's plate, and autonomous agents that carry the daily tasks end to end. Rather than replacing what you have, I integrate AI into your existing products and systems so they get measurably better at what they already do.",
